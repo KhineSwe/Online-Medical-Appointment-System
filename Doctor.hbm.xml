@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Doctor"
+		table="doctor"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="did"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="dname"
+			column="dname"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="demail"
+			column="demail"
+			type="string"
+			not-null="true"
+			length="100"
+		/>
+		<property
+			name="dpwd"
+			column="dpwd"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="daddress"
+			column="daddress"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="dphno"
+			column="dphno"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="dgender"
+			column="dgender"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="dregdate"
+			column="dregdate"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="dstatus"
+			column="dstatus"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<many-to-one
+			name="spid"
+			column="spid"
+			class="Specialize"
+			not-null="true"
+		>
+		</many-to-one>
+	
+
+		<set name="schedules" inverse="true">
+			<key column="did"/>
+			<one-to-many class="Schedule"/>
+		</set>
+
+		<set name="doctordegrees" inverse="true">
+			<key column="did"/>
+			<one-to-many class="Doctordegree"/>
+		</set>
+
+		<set name="ratings" inverse="true">
+			<key column="did"/>
+			<one-to-many class="Rating"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

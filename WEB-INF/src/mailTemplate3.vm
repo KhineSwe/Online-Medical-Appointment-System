@@ -1,0 +1,21 @@
+Mingalarbar!
+
+This is your updated schedule.
+----------------------------------------------------------------------
+Dear $name						 $today
+---------------------------------------------------------------------
+Welcome to our OMAS system.....
+
+Specialize Type           : $specializetype
+Hospital Name             : $hospital	
+Maximum number of patient : $maxschno
+
+Date                    : $date
+Start Time              : $Starttime:00 (24-hr)
+Finish Time             : $Finishtime:00 (24-hr)  
+
+---------------------------------------------------------------------
+
+
+Best Regards,
+OMAS Admin...

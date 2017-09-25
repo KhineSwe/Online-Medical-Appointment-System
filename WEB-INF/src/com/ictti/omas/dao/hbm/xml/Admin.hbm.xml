@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Admin"
+		table="admin"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="admid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="admname"
+			column="admname"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="admemail"
+			column="admemail"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="admpwd"
+			column="admpwd"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

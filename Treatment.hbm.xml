@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Treatment"
+		table="treatment"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="treatmentid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="disease"
+			column="disease"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="treatment"
+			column="treatment"
+			type="string"
+			not-null="false"
+			length="1000"
+		/>
+		<property
+			name="dnote"
+			column="dnote"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="treatmentdt"
+			column="treatmentdt"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<many-to-one
+			name="appointmentid"
+			column="appointmentid"
+			class="Appointment"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

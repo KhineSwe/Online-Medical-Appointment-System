@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html> <head>
+<meta http-equiv='CONTENT-TYPE' content='text/html; charset=UTF-8' />
+<link rel='StyleSheet' href='DTDDocStyle.css' type='text/css' media='screen' />
+<title>tiles-config_1_1.dtd</title>
+</head><body>
+<p class='DTDSource'><b><code>tiles-config_1_1.dtd</code></b> : <a href='tiles-config_1_1.dtd.html'>Elements</a> - <a href='tiles-config_1_1.dtd.entities.html'>Entities</a> - <a href='tiles-config_1_1.dtd.org.html'>Source</a> | <a href='intro.html'>Intro</a> - <a href='elementsIndex.html'>Index</a><br /><a href='index.html' target='_top'>FRAMES</a>&nbsp;/&nbsp;<a href='tiles-config_1_1.dtd.org.html' target='_top'>NO FRAMES</a></p><pre>&lt;!--
+    $Id: tiles-config_1_1.dtd 481833 2006-12-03 17:32:52Z niallp $
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+   
+         http://www.apache.org/licenses/LICENSE-2.0
+   
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+&lt;!--
+     DTD for the Tile Definition File, Version 1.1
+
+     To support validation of your configuration file, include the following
+     DOCTYPE element at the beginning (after the "xml" declaration):
+
+     &lt;!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
+
+     $Id: tiles-config_1_1.dtd 481833 2006-12-03 17:32:52Z niallp $
+-->
+
+
+&lt;!-- ========== Defined Types ============================================= -->
+
+
+&lt;!-- A "Boolean" is the string representation of a boolean (true or false)
+     variable.
+-->
+&lt;!ENTITY % Boolean "(true|false)">
+
+
+&lt;!-- A "ContentType" is the content type of an attribute passed to a tile
+     component.
+-->
+&lt;!ENTITY % ContentType "(string|page|template|definition)">
+
+&lt;!-- A "ClassName" is the fully qualified name of a Java class that is
+     instantiated to provide the functionality of the enclosing element.
+-->
+&lt;!ENTITY % ClassName "CDATA">
+
+&lt;!-- A "RequestPath" is an module-relative URI path, beginning with a
+     slash, that identifies a mapped resource (such as a JSP page or a servlet)
+     within this web application.
+-->
+&lt;!ENTITY % RequestPath "CDATA">
+
+&lt;!-- A "DefinitionName" is the unique identifier of a definition. This identifier
+     is a logical name used to reference the definition.
+-->
+&lt;!ENTITY % DefinitionName "CDATA">
+
+&lt;!-- A "BeanName" is the identifier of a JavaBean, such as a form bean,
+     and also serves as the name of the corresponding scripting variable
+     and the name of the JSP attribute under which the bean is accessed.
+     Therefore, it must conform to the rules for a Java identifier.
+-->
+&lt;!ENTITY % BeanName "CDATA">
+
+&lt;!-- A "PropName" is the name of a JavaBeans property, and must begin with
+     a lower case letter and contain only characters that are legal in a
+     Java identifier.
+-->
+&lt;!ENTITY % PropName "CDATA">
+
+&lt;!-- A "Location" is a relative path, delimited by "/" characters, that
+     defines the location of a resource relative to the location of the
+     configuration file itself.
+-->
+&lt;!ENTITY % Location "#PCDATA">
+
+
+
+&lt;!-- ========== Top Level Elements ======================================== -->
+
+
+  &lt;!-- deprecated: use tiles-definitions instead.-->
+&lt;!ELEMENT component-definitions (definition+)>
+
+&lt;!-- The "tiles-definitions" element is the root of the configuration file
+     hierarchy, and contains nested elements for all of the other
+     configuration settings.
+-->
+&lt;!ELEMENT tiles-definitions (definition+)>
+
+&lt;!-- The "definition" element describes a definition that can be inserted in a jsp
+     page. This definition is identified by its logical name. A definition allows
+     to define all the attributes that can be set in &lt;insert> tag from a jsp page.
+
+     controllerClass The fully qualified Java class name of the controller
+                     subclass to call immediately before the tiles is inserted.
+                     Only one of controllerClass or controllerUrl should be
+                     specified.
+
+     controllerUrl   The context-relative path to the resource used as controller
+                     called immediately before the tiles is inserted.
+                     Only one of controllerClass or controllerUrl should be
+                     specified.
+
+     extends         Name of a definition that is used as ancestor of this definition.
+                     All attributes from the ancestor are available to the new
+                     definition. Any attribute inherited from the ancestor can
+                     be overloaded by providing a new value.
+
+     name            The unique identifier for this definition.
+
+     page            Same as path.
+
+     path            The context-relative path to the resource used as tiles to
+                     insert. This tiles will be inserted and a tiles context
+                     containing appropriate attributes will be available.
+
+     role            Security role name that is allowed access to this definition
+                     object. The definition is inserted only if the role name is
+                     allowed.
+
+     template        Same as path. For compatibility with the template tag library.
+-->
+&lt;!ELEMENT definition (icon?, display-name?, description?, put*, putList*)>
+&lt;!ATTLIST definition       id               ID               #IMPLIED>
+&lt;!ATTLIST definition       controllerClass  %ClassName;      #IMPLIED>
+&lt;!ATTLIST definition       controllerUrl    %RequestPath;    #IMPLIED>
+&lt;!ATTLIST definition       extends          %DefinitionName; #IMPLIED>
+&lt;!ATTLIST definition       name             %DefinitionName; #REQUIRED>
+&lt;!ATTLIST definition       page             %RequestPath;    #IMPLIED>
+&lt;!ATTLIST definition       path             %RequestPath;    #IMPLIED>
+&lt;!ATTLIST definition       role             CDATA            #IMPLIED>
+&lt;!ATTLIST definition       template         %RequestPath;    #IMPLIED>
+
+
+&lt;!-- The "put" element describes an attribute of a definition. It allows to
+     specify the tiles attribute name and its value. The tiles value can be
+     specified as an xml attribute, or in the body of the &lt;put> tag.
+
+     content         Same as value. For compatibility with the template tag library.
+
+     direct          Same as type="string". For compatibility with the template
+                     tag library.
+
+     name            The unique identifier for this put.
+
+     type            The type of the value. Can be: string, page, template or definition.
+                     By default, no type is associated to a value. If a type is
+                     associated, it will be used as a hint to process the value
+                     when the attribute will be used in the inserted tiles.
+
+     value           The value associated to this tiles attribute. The value should
+                     be specified with this tag attribute, or in the body of the tag.
+-->
+&lt;!ELEMENT put (#PCDATA)>
+&lt;!ATTLIST put              id               ID              #IMPLIED>
+&lt;!ATTLIST put              content          CDATA           #IMPLIED>
+&lt;!ATTLIST put              direct           %Boolean;       #IMPLIED>
+&lt;!ATTLIST put              name             CDATA           #REQUIRED>
+&lt;!ATTLIST put              type             %ContentType;   #IMPLIED>
+&lt;!ATTLIST put              value            CDATA           #IMPLIED>
+
+
+&lt;!-- The "putList" element describes a list attribute of a definition. It allows to
+     specify an attribute that is a java List containing any kind of values. In
+     the config file, the list elements are specified by nested &lt;add>, &lt;item> or
+     &lt;putList>.
+
+     name            The unique identifier for this put list.
+-->
+&lt;!ELEMENT putList ( (add* | item* | bean* | putList*)+) >
+&lt;!ATTLIST putList          id               ID              #IMPLIED>
+&lt;!ATTLIST putList          name             CDATA           #REQUIRED>
+
+&lt;!-- ========== Subordinate Elements ====================================== -->
+
+&lt;!-- The "add" element describes an element of a list. It is similar to the
+     &lt;put> element.
+
+     content         Same as value. For compatibility with the template tag library.
+
+     direct          Same as type="string". For compatibility with the template
+                     tag library.
+
+     type            The type of the value. Can be: string, page, template or definition.
+                     By default, no type is associated to a value. If a type is
+                     associated, it will be used as a hint to process the value
+                     when the attribute will be used in the inserted tiles.
+
+     value           The value associated to this tiles attribute. The value should
+                     be specified with this tag attribute, or in the body of the tag.
+-->
+&lt;!ELEMENT add (#PCDATA)>
+&lt;!ATTLIST add              id               ID              #IMPLIED>
+&lt;!ATTLIST add              content          CDATA           #IMPLIED>
+&lt;!ATTLIST add              direct           %Boolean;       #IMPLIED>
+&lt;!ATTLIST add              type             %ContentType;   #IMPLIED>
+&lt;!ATTLIST add              value            CDATA           #IMPLIED>
+
+
+&lt;!-- The "bean" element describes an element of a list. It create a bean of the
+     specified java classtype. This bean is initialized with appropriate nested
+     &lt;set-property>.
+
+     classtype       The fully qualified classname for this bean.
+-->
+&lt;!ELEMENT bean (set-property*)>
+&lt;!ATTLIST bean             id               ID              #IMPLIED>
+&lt;!ATTLIST bean             classtype        %ClassName;     #REQUIRED>
+
+&lt;!-- The "set-property" element specifies the method name and initial value of
+     a bean property. When the object representing
+     the surrounding element is instantiated, the accessor for the indicated
+     property is called and passed the indicated value.
+
+     property        Name of the JavaBeans property whose setter method
+                     will be called.
+
+     value           String representation of the value to which this
+                     property will be set, after suitable type conversion
+-->
+&lt;!ELEMENT set-property   EMPTY>
+&lt;!ATTLIST set-property   id             ID              #IMPLIED>
+&lt;!ATTLIST set-property   property       %PropName;      #REQUIRED>
+&lt;!ATTLIST set-property   value          CDATA           #REQUIRED>
+
+
+&lt;!-- The "item" element describes an element of a list. It create a bean added as
+     element to the list. Each bean can contain different properties: value, link,
+     icon, tooltip. These properties are to be interpreted by the jsp page using
+     them.
+     By default the bean is of type
+     "org.apache.struts.tiles.beans.SimpleMenuItem". This bean is useful to
+     create a list of beans used as menu items.
+
+     classtype       The fully qualified classtype for this bean.
+                     If specified, the classtype must be a subclass of the interface
+                     "org.apache.struts.tiles.beans.MenuItem".
+
+     icon            The bean 'icon' property.
+
+     link            The bean 'link' property.
+
+     tooltip         The bean 'tooltip' property.
+
+     value           The bean 'value' property.
+-->
+&lt;!ELEMENT item (#PCDATA)>
+&lt;!ATTLIST item             id               ID              #IMPLIED>
+&lt;!ATTLIST item             classtype        %ClassName;     #IMPLIED>
+&lt;!ATTLIST item             icon             CDATA           #IMPLIED>
+&lt;!ATTLIST item             link             CDATA           #REQUIRED>
+&lt;!ATTLIST item             tooltip          CDATA           #IMPLIED>
+&lt;!ATTLIST item             value            CDATA           #REQUIRED>
+
+
+&lt;!-- ========== Info Elements ====================================== -->
+
+&lt;!-- The "description" element contains descriptive (paragraph length) text
+     about the surrounding element, suitable for use in GUI tools.
+-->
+&lt;!ELEMENT description    (#PCDATA)>
+&lt;!ATTLIST description    id             ID              #IMPLIED>
+
+
+&lt;!-- The "display-name" element contains a short (one line) description of
+     the surrounding element, suitable for use in GUI tools.
+-->
+&lt;!ELEMENT display-name (#PCDATA)>
+&lt;!ATTLIST display-name   id             ID              #IMPLIED>
+
+
+&lt;!-- The "icon" element contains a small-icon and large-icon element which
+     specify the location, relative to the Struts configuration file, for small
+     and large images used to represent the surrounding element in GUI tools.
+-->
+&lt;!ELEMENT icon           (small-icon?, large-icon?)>
+&lt;!ATTLIST icon           id             ID              #IMPLIED>
+
+
+&lt;!-- The "large-icon" element specifies the location, relative to the Struts
+     configuration file, of a resource containing a large (32x32 pixel)
+     icon image.
+-->
+&lt;!ELEMENT large-icon     (%Location;)>
+&lt;!ATTLIST large-icon     id             ID              #IMPLIED>
+
+
+&lt;!-- The "small-icon" element specifies the location, relative to the Struts
+     configuration file, of a resource containing a small (16x16 pixel)
+     icon image.
+-->
+&lt;!ELEMENT small-icon     (%Location;)>
+&lt;!ATTLIST small-icon     id             ID              #IMPLIED>
+</pre></body></html>

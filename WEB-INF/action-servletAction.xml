@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+  <!-- Doctor -->
+  
+  <bean name="/doctorloginPathFirst" class="com.ictti.omas.presentation.action.LoginAction">
+		<property name="myDoctorService" ref="idDoctorService" />
+	</bean>
+
+	<bean name="/doctorloginPath" class="com.ictti.omas.presentation.action.LoginAction">
+		<property name="myDoctorService" ref="idDoctorService" />
+	</bean>
+
+	<bean name="/doctorlogoutPath" class="com.ictti.omas.presentation.action.LogoutAction">
+	</bean>
+
+	<bean name="/doctorupdatePathFirst" class="com.ictti.omas.presentation.action.DoctorUpdateAction">
+		<property name="myDoctorService" ref="idDoctorService" />
+	</bean>
+
+
+	<bean name="/doctorupdatePath" class="com.ictti.omas.presentation.action.DoctorUpdateAction">
+		<property name="myDoctorService" ref="idDoctorService" />
+	</bean>
+
+
+
+	<bean name="/treatmentlistPath"
+		class="com.ictti.omas.presentation.action.TreatmentSearchAction">
+		<property name="myTreatmentSearchService" ref="idTreatmentSearchService" />
+	</bean>
+
+
+	<bean name="/treatmentlistDetailPath"
+		class="com.ictti.omas.presentation.action.TreatmentSearchAction">
+		<property name="myTreatmentSearchService" ref="idTreatmentSearchService" />
+	</bean>
+
+
+	<bean name="/treatmentPatientNameSearchPath"
+		class="com.ictti.omas.presentation.action.TreatmentPatientSearchAction">
+		<property name="myPatientSearchService" ref="idPatientSearchService" />
+	</bean>
+
+	<bean name="/treatmentPatientlistDetailPath"
+		class="com.ictti.omas.presentation.action.TreatmentPatientSearchAction">
+		<property name="myPatientSearchService" ref="idPatientSearchService" />
+	</bean>
+
+	 <bean name="/docfaq" class="com.ictti.omas.presentation.action.doctorfaqAction">
+	</bean>
+	
+	<bean name="/docContactMailPathFist" class="com.ictti.omas.presentation.action.DoctorMailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	
+	<bean name="/docContactMailPath" class="com.ictti.omas.presentation.action.DoctorMailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	
+	
+	
+	<bean name="/docContactMailPathFistafterlogin" class="com.ictti.omas.presentation.action.DoctorMailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	
+	<bean name="/docContactMailPathafterlogin" class="com.ictti.omas.presentation.action.DoctorMailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	
+	
+	
+
+
+	<bean name="/Doctoromas" class="com.ictti.omas.presentation.action.DoctorOmasAction">
+	</bean>
+
+
+
+	
+
+
+
+	<bean name="/appointmentPathFirst"
+		class="com.ictti.omas.presentation.action.AppointHospitalAction">
+		<property name="myAppointHospService" ref="idAppointHospService" />
+	</bean>
+
+
+	<bean name="/hospitallistDetailPath"
+		class="com.ictti.omas.presentation.action.AppointHospitalAction">
+		<property name="myAppointHospService" ref="idAppointHospService" />
+	</bean>
+
+
+
+<bean name="/noOfappointDetailPath"
+		class="com.ictti.omas.presentation.action.AppointListAction">
+		<property name="myAppointHospService" ref="idAppointHospService" />
+	</bean>
+	
+	
+	<bean name="/recordTreatmentPathFist"
+		class="com.ictti.omas.presentation.action.recordTreatmentAction">
+		<property name="myAppointHospService" ref="idAppointHospService" />
+	</bean>
+	
+	
+	<bean name="/recordTreatmentPath"
+		class="com.ictti.omas.presentation.action.recordTreatmentPathAction">
+		<property name="myAppointHospService" ref="idAppointHospService" />
+	</bean>
+	
+	<!-- end Doctor -->
+  
+
+	<!-- For Admin -->
+	<!-- ****************for admin Login & Logout************** -->
+	<bean name="/adminloginPath" class="com.ictti.omas.presentation.action.AdminLoginAction">
+		<property name="myAdminService" ref="idAdminService" /> 
+	</bean>
+	<bean name="/adminlogoutPath"
+		class="com.ictti.omas.presentation.action.AdminLogoutAction">
+
+	</bean>
+		<!-- ****************end admin Login & Logout************** -->
+	
+	<!-- ************* schedule create ************** -->
+	<bean name="/adminspecSubPath"
+		class="com.ictti.omas.presentation.action.adminHospitalSpecializeAction">
+		<property name="myHospitalService" ref="idAutoService" />
+		<property name="myDoctorService" ref="idAutoService" />
+
+	</bean>
+
+	<bean name="/admindoctorPath"
+		class="com.ictti.omas.presentation.action.adminHospitalSpecializeAction">
+		<property name="myHospitalService" ref="idAutoService" />
+		<property name="myDoctorService" ref="idAutoService" />
+
+	</bean>
+	
+	<bean name="/adminaddSchedulePath"
+		class="com.ictti.omas.presentation.action.adminAddScheduleAction">
+		<property name="myAddScheduleService" ref="idAdminAddScheduleService" />
+		
+		
+
+	</bean>
+	<bean name="/adminconfirmSchedulePath"
+		class="com.ictti.omas.presentation.action.adminConfirmScheduleAction">
+		 <property name="myAdminAddScheduleService" ref="idAdminAddScheduleService" /> 
+		
+		
+
+	</bean>
+	<!-- ************* end schedule create ************** -->
+	
+	<!-- ************* schedule update************** -->
+	
+	
+	<bean name="/adminupdatespecSubPath"
+		class="com.ictti.omas.presentation.action.adminUpdateHospitalSpecializeAction">
+		<property name="myHospitalService" ref="idAutoService" />
+		<property name="myDoctorService" ref="idAutoService" />
+
+	</bean>
+
+	<bean name="/admindoctorPath1"
+		class="com.ictti.omas.presentation.action.adminUpdateHospitalSpecializeAction">
+		<property name="myHospitalService" ref="idAutoService" />
+		<property name="myDoctorService" ref="idAutoService" />
+
+	</bean>
+
+
+	<bean name="/adminSearchSchedulePath"
+		class="com.ictti.omas.presentation.action.adminUpdateScheduleAction">
+		<property name="myUpdateScheduleService" ref="idAdminUpdateScheduleService" />
+
+	</bean>
+
+	<bean name="/UpdatescheduleDetailPath"
+		class="com.ictti.omas.presentation.action.adminUpdateScheduleAction">
+		<property name="myUpdateScheduleService" ref="idAdminUpdateScheduleService" />
+
+	</bean>
+
+	<bean name="/ScheduleUpdatePath"
+		class="com.ictti.omas.presentation.action.adminUpdateScheduleDetailAction">
+		<property name="myScheduleUpdateService" ref="idAdminUpdateScheduleService" />
+
+	</bean>
+
+	<bean name="/UpdateConfirmPath"
+		class="com.ictti.omas.presentation.action.adminUpdateScheduleDetailAction">
+		<property name="myScheduleUpdateService" ref="idAdminUpdateScheduleService" />
+
+	</bean>
+
+	<bean name="/UpdateOKPath"
+		class="com.ictti.omas.presentation.action.adminUpdateScheduleDetailAction">
+		<property name="myScheduleUpdateService" ref="idAdminUpdateScheduleService" />
+
+	</bean>
+
+	<!-- *****************end  schedule update*********** -->
+	
+	
+	
+	<!-- ****************for hospital***************** -->
+	<bean name="/hospitalPathFirst"
+		class="com.ictti.omas.presentation.action.HospitalRegisterationAction">
+		<property name="myHospitalService" ref="idHospitalService" />
+	</bean>
+
+		<bean name="/hospitalReg"
+		class="com.ictti.omas.presentation.action.HospitalRegisterationAction">
+		<property name="myHospitalService" ref="idHospitalService" />
+	</bean>
+
+
+
+	 <bean name="/hospitalListPath" class="com.ictti.omas.presentation.action.SearchAction">
+		<property name="mySearchService" ref="idHospitalService" />
+	</bean> 
+	
+
+	<bean name="/HospitalDetailPath" class="com.ictti.omas.presentation.action.SearchAction">
+		<property name="mySearchService" ref="idHospitalService" />
+	</bean>
+
+	<!-- <bean name="/autoComplementPath"
+		class="com.ictti.omas.presentation.action.AutoComplementAction">
+		<property name="myhospitalaSearchService" ref="idAutoService" />
+
+	</bean> -->
+	<bean name="/HospitalUpdatePathFirst" class="com.ictti.omas.presentation.action.UpdateAction">
+		<property name="myHospitalService" ref="idHospitalService" />
+	</bean>
+
+
+	<bean name="/HospitalUpdatePath" class="com.ictti.omas.presentation.action.UpdateAction">
+		<property name="myHospitalService" ref="idHospitalService" />
+	</bean>
+
+
+
+	<bean name="/HospitalUpdate" class="com.ictti.omas.presentation.action.UpdateAction">
+		<property name="myHospitalService" ref="idHospitalService" />
+	</bean>
+	<!-- *********** end  hospital **************** -->
+	
+	
+		<!-- **********************Doctor Management******************** -->
+
+
+
+	<bean name="/doctorlistPath" class="com.ictti.omas.presentation.action.doctorListAction">
+		<property name="myDoctorListService" ref="idDoctorListService" />
+	</bean>
+
+
+
+	<bean name="/doctorlistDetailPath" class="com.ictti.omas.presentation.action.doctorListAction">
+		<property name="myDoctorListService" ref="idDoctorListService" />
+	</bean>
+
+
+
+	<bean name="/doctorlistByHosnameSearchPath"
+		class="com.ictti.omas.presentation.action.hosnameDoctorListAction">
+		<property name="myDoctorListService" ref="idDoctorListService" />
+	</bean>
+
+	<!-- *****************  end Doctor Management ***************-->
+	
+	
+	<!-- **********************Patient Management******************** -->
+
+	<bean name="/autoComplementPath"
+		class="com.ictti.omas.presentation.action.AutoComplementAction">
+		<property name="myNameAutoComplementService" ref="idNameAutoService" />
+	</bean>
+	
+	<bean name="/detailPath"
+		class="com.ictti.omas.presentation.action.NameDetailAction">
+		<property name="myNameAutoComplementService" ref="idNameAutoService" />
+	</bean>
+	
+	
+	<bean name="/searchPatientByNamePath"
+		class="com.ictti.omas.presentation.action.SearchByNameAction">
+		<property name="myNameAutoComplementService" ref="idNameAutoService" />
+	</bean>
+	
+	<bean name="/searchNamePath"
+		class="com.ictti.omas.presentation.action.NameAutoComplementAction">
+		<property name="myNameAutoComplementService" ref="idNameAutoService" />
+	</bean>
+	
+	<bean name="/NamedetailPath"
+		class="com.ictti.omas.presentation.action.NameAutoComplementAction">
+		<property name="myNameAutoComplementService" ref="idNameAutoService" />
+	</bean>
+	
+	
+	<bean name="/statusChangePath"
+		class="com.ictti.omas.presentation.action.StatusChangeAction">
+		<property name="myNameAutoComplementService" ref="idNameAutoService" />
+	</bean>
+	
+	<!-- ************** end Patient Management *************** -->
+	
+	<!-- ************** Doctor Register *************** -->
+	
+	<bean name="/doctorRegisterPathFirst" class="com.ictti.omas.presentation.action.DoctorRegAction">
+		<property name="myDoctorService" ref="idDoctorService" />
+	</bean>
+
+	<bean name="/doctorRegisterPath" class="com.ictti.omas.presentation.action.DoctorRegAction">
+		<property name="myDoctorService" ref="idDoctorService" />
+	</bean>
+		<!-- ************** end  Doctor Register *************** -->
+		
+		<!-- ************** Specialize *************** -->
+		
+		<bean name="/adminSpe"
+		class="com.ictti.omas.presentation.action.AddSpecializeAction">
+		<property name="myAddspService" ref="idAddspService" />
+	</bean> 
+	<bean name="/adminAddSpe"
+		class="com.ictti.omas.presentation.action.AddSpecializeAction">
+		<property name="myAddspService" ref="idAddspService" />
+	</bean>
+	
+ <bean name="/addSptoHos"
+		class="com.ictti.omas.presentation.action.AddSpecializetoHosAction">
+		<property name="myAddspService" ref="idAddspService" /> 
+	</bean> 
+	
+	
+	<!-- <bean name="/addsp" class="com.ictti.omas.presentation.action.AddSpecializeAction">
+	<property name="myAddspService" ref="idAddspService" />
+	</bean> -->
+<bean name="/addSptoHosConfirm"
+		class="com.ictti.omas.presentation.action.AddSpectoHosConfirmAction">
+		<property name="myAddspService" ref="idAddspService" /> 
+	</bean>
+	
+	
+	<bean name="/adminAddSpec"
+		class="com.ictti.omas.presentation.action.AdminAddSpecializeAction">
+		<property name="myAddspService" ref="idAddspService" /> 
+	</bean>
+	
+	
+		<bean name="/adminnewspeconf"
+		class="com.ictti.omas.presentation.action.AdminAddSpecializeAction">
+		<property name="myAddspService" ref="idAddspService" /> 
+	</bean>
+	
+	
+		<!-- ************** end Specialize *************** -->
+				<!-- **************  Specialize Update *************** -->
+		
+		<bean name="/adminUpdateSpe"
+		class="com.ictti.omas.presentation.action.AdminUpdateSpecializeAction">
+		<property name="myAdminUpdateSpecializeService" ref="idUpdateService" /> 
+	</bean>
+		<bean name="/updatespe"
+		class="com.ictti.omas.presentation.action.AdminUpdateSpecializeAction">
+		<property name="myAdminUpdateSpecializeService" ref="idUpdateService" /> 
+	</bean>
+	
+		<!-- ************** end Specialize Update *************** -->
+		
+		<!-- ************** Appointment list *************** -->
+		
+		
+		<bean name="/AppointmentlistPathFirst" class="com.ictti.omas.presentation.action.AppointmentlistAction">
+		<property name="myappointmentlistService" ref="idAppointmentlistService" />
+	</bean>
+
+
+<bean name="/SerchbyDNH" class="com.ictti.omas.presentation.action.AppointmentlistAction">
+		<property name="myappointmentlistService" ref="idAppointmentlistService" /> 
+	</bean>
+	
+	<bean name="/appointDetailPath" class="com.ictti.omas.presentation.action.SearchAppointmentlistAction">
+		<property name="myappointmentlistService" ref="idsearchAppointmentlistService" /> 
+	</bean>
+	
+	
+	<!-- ************** end  Appointment list *************** -->
+		
+	
+<!-- for admin end  -->
+
+
+
+
+
+	<!-- For Patient -->
+	
+	<bean name="/Rating" class="com.ictti.omas.presentation.action.RatingAction">
+		<property name="myScheduleService" ref="idScheduleService" /> 
+	</bean>
+	
+	<bean name="/loginPathFirst" class="com.ictti.omas.presentation.action.PatientLoginAction">
+		<property name="myPatientService" ref="idPatientService" />
+	</bean>
+	<bean name="/loginPath" class="com.ictti.omas.presentation.action.PatientLoginAction">
+		<property name="myPatientService" ref="idPatientService" />
+	</bean>
+
+	<bean name="/logoutPath"
+		class="com.ictti.omas.presentation.action.PatientLogoutAction">
+
+	</bean>
+	<bean name="/registerPathFirst"
+		class="com.ictti.omas.presentation.action.PatientRegisterAction">
+		<property name="myPatientService" ref="idPatientService" />
+	</bean>
+	<bean name="/registerPath"
+		class="com.ictti.omas.presentation.action.PatientRegisterAction">
+		<property name="myPatientService" ref="idPatientService" />
+	</bean>
+	<bean name="/updatePathFirst"
+		class="com.ictti.omas.presentation.action.PatientUpdateAction">
+		<property name="myPatientService" ref="idPatientService" />
+	</bean>
+	<bean name="/updatePath"
+		class="com.ictti.omas.presentation.action.PatientUpdateAction">
+		<property name="myPatientService" ref="idPatientService" />
+	</bean>
+
+	<bean name="/speSubPath"
+		class="com.ictti.omas.presentation.action.HospitalSpecializeAction">
+		<property name="myHospitalService" ref="idAutoService" />
+		<property name="myDoctorService" ref="idAutoService" />
+	</bean>
+	<bean name="/hospitalPath" class="com.ictti.omas.presentation.action.hospitalAction">
+		<property name="myHospitalService" ref="idAutoService" />
+		<property name="myDoctorService" ref="idAutoService" />
+	</bean>
+
+
+
+	<bean name="/doctorPath"
+		class="com.ictti.omas.presentation.action.HospitalSpecializeAction">
+
+		<property name="myHospitalService" ref="idAutoService" />
+		<property name="myDoctorService" ref="idAutoService" />
+		<property name="myDoctorDegreeService" ref="idAutoService" />
+	</bean>
+
+
+	<bean name="/schedulePath" class="com.ictti.omas.presentation.action.ScheduleAction">
+		<property name="myScheduleService" ref="idScheduleService" />
+	</bean>
+
+	<bean name="/scheduleDetailPath" class="com.ictti.omas.presentation.action.BookConfirmAction">
+		<property name="myScheduleService" ref="idScheduleService" />
+	</bean>
+
+
+	<bean name="/tokenPath" class="com.ictti.omas.presentation.action.BookConfirmAction">
+		<property name="myScheduleService" ref="idScheduleService" />
+	</bean>
+
+	<bean name="/appointPath" class="com.ictti.omas.presentation.action.BookConfirmAction">
+		<property name="myScheduleService" ref="idScheduleService" />
+	</bean>
+	
+	
+
+	<bean name="/contactMailPathFist" class="com.ictti.omas.presentation.action.MailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+
+	<bean name="/contactMailPath" class="com.ictti.omas.presentation.action.MailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	
+	
+	
+	
+		<bean name="/contactMailPathFistafterlogin" class="com.ictti.omas.presentation.action.MailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+
+	<bean name="/contactMailPathafterlogin" class="com.ictti.omas.presentation.action.MailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+
+
+
+	<bean name="/faq" class="com.ictti.omas.presentation.action.faqAction">
+	</bean>
+	<bean name="/about" class="com.ictti.omas.presentation.action.aboutAction">
+	</bean>
+	<bean name="/omas" class="com.ictti.omas.presentation.action.omasAction">
+	</bean>
+
+
+
+	<bean name="/treatmentPath"
+		class="com.ictti.omas.presentation.action.TreatmentListAction">
+		<property name="myTreatmentService" ref="idTreatmentService" />
+	</bean>
+
+	<bean name="/TreatmentDetailPath"
+		class="com.ictti.omas.presentation.action.TreatmentListAction">
+		<property name="myTreatmentService" ref="idTreatmentService" />
+	</bean>
+
+	<bean name="/searchbyHospital"
+		class="com.ictti.omas.presentation.action.TreatmentHospitalSearchAction">
+		<property name="myHospitalSearchService" ref="idsearchHospitalService" />
+	</bean>
+
+	<bean name="/TreatmentHospitalDetailPath"
+		class="com.ictti.omas.presentation.action.TreatmentHospitalSearchAction">
+		<property name="myHospitalSearchService" ref="idsearchHospitalService" />
+	</bean>
+
+
+
+
+	<!-- <bean name="/searchbyHospitalDetail" class="com.ictti.omas.presentation.action.TreatmentHospitalSearchAction"> 
+		<property name="myHospitalSearchService" ref="idsearchHospitalService" /> 
+		</bean> -->
+
+	<bean name="/searchbydoctorPath"
+		class="com.ictti.omas.presentation.action.TreatmentListbydoctorAction">
+		<property name="myDoctorSearchService" ref="idsearchDoctorService" />
+	</bean>
+
+
+
+
+	<bean name="/searchbyDoctorDetail"
+		class="com.ictti.omas.presentation.action.TreatmentListbydoctorAction">
+		<property name="myDoctorSearchService" ref="idsearchDoctorService" />
+	</bean>
+
+	<bean name="/searchbyDoctor"
+		class="com.ictti.omas.presentation.action.TreatmentDoctorSearchAction">
+		<property name="myDoctorSearchService" ref="idsearchbyDoctorService" />
+	</bean>
+
+	<bean name="/searchAjaxbyDoctorDetail"
+		class="com.ictti.omas.presentation.action.TreatmentDoctorSearchAction">
+		<property name="myDoctorSearchService" ref="idsearchbyDoctorService" />
+	</bean>
+
+
+
+
+
+	<bean name="/searchbyspecializePath"
+		class="com.ictti.omas.presentation.action.TreatmentListbyspecializeAction">
+		<property name="mySpecializeSearchService" ref="idsearchSpecializeService" />
+	</bean>
+
+<bean name="/searchbySpecializeDetail"
+		class="com.ictti.omas.presentation.action.TreatmentListbyspecializeAction">
+		<property name="mySpecializeSearchService" ref="idsearchSpecializeService" />
+	</bean>
+	
+	<bean name="/searchbySpecialize"
+		class="com.ictti.omas.presentation.action.TreatmentSpecializeSearchAction">
+		<property name="mySpecializeSearchService" ref="idsearchbySpecializeService" />
+	</bean>
+	
+	
+	<bean name="/searchAjaxbySpecializeDetail"
+		class="com.ictti.omas.presentation.action.TreatmentSpecializeSearchAction">
+		<property name="mySpecializeSearchService" ref="idsearchbySpecializeService" />
+	</bean>
+	
+
+	
+	<bean name="/SearchByDate" class="com.ictti.omas.presentation.action.SearchByDateAction">
+		<property name="mySearchDateService" ref="idSearchByDate" />
+	</bean>
+	<bean name="/hositalPath" class="com.ictti.omas.presentation.action.hospitalAction">
+		<property name="myHospitalService" ref="idAutoService" />
+		<property name="myDoctorService" ref="idAutoService" />
+	</bean>
+
+
+
+
+
+
+</beans>
+

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+	http://www.directwebremoting.org/schema/spring-dwr 
+	http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+
+	<bean id="idTreatmentSearchService" class="com.ictti.omas.business.service.TreatmentSearchService">
+		<property name="myTreatmentDao" ref="idDocTreatmentDao" />
+
+		<dwr:remote javascript="AjaxTreatmentSearch">
+			<dwr:include method="findTreatmentByLikeFromService" />
+		</dwr:remote>
+	</bean>
+	<dwr:configuration>
+		<dwr:convert type="bean"
+			class="com.ictti.omas.business.entity.TreatmentView" javascript="TreatmentView" />
+	</dwr:configuration>
+
+
+
+	<bean id="idPatientSearchService"
+		class="com.ictti.omas.business.service.TreatmentPatientSearchService">
+		<property name="myTreatmentDao" ref="idDocTreatmentDao" />
+
+
+		<dwr:remote javascript="AjaxPatientSearch">
+			<dwr:include method="findTreatmentByLikeFromService" />
+		</dwr:remote>
+	</bean>
+	<dwr:configuration>
+		<dwr:convert type="bean"
+			class="com.ictti.omas.business.entity.TreatmentView" javascript="TreatmentView" />
+	</dwr:configuration>
+
+
+
+	<!-- <bean id="idEmailService" class="com.ictti.omas.business.service.EmailService"> 
+		</bean> -->
+	<bean id="idAppointHospService" class="com.ictti.omas.business.service.AppointHospService">
+		<property name="myAppointViewDao" ref="idAppointViewDao" />
+		<property name="myAppointmentDao" ref="idAppointmentDao" />
+		<property name="myTreatmentDao" ref="idDocTreatmentDao"></property>
+
+	</bean>
+
+
+
+	<!-- For Admin -->
+	<!-- ***********Schedule create************ -->
+	<bean id="idAdminService" class="com.ictti.omas.business.service.AdminService">
+		<property name="myAdminDao" ref="idAdminDao" />
+	</bean>
+
+
+
+	<bean id="idAdminAddScheduleService" class="com.ictti.omas.business.service.AdminAddScheduleService">
+		<property name="myDoctorDao" ref="idDoctorDao" />
+		<property name="myHospitalDao" ref="idHospitalDao" />
+		<property name="myScheduleDao" ref="idScheduleDao" />
+	</bean>
+
+	<!-- *********** end Schedule create************ -->
+
+	<!-- ***********Schedule update ************ -->
+	<bean id="idAdminUpdateScheduleService"
+		class="com.ictti.omas.business.service.AdminUpdateScheduleService">
+		<property name="myDoctorDao" ref="idDoctorDao" />
+		<property name="myScheduleDao" ref="idScheduleDao" />
+		<property name="myScheduleViewDao" ref="idScheduleViewDao" />
+
+	</bean>
+
+	<!-- *********** end Schedule update ************ -->
+
+
+	<!-- **********Hospital************ -->
+	<bean id="idHospitalService" class="com.ictti.omas.business.service.HospitalService">
+		<property name="myHosptialDao" ref="idHospitalDao" />
+
+	</bean>
+
+
+	<!-- ********** end Hospital************ -->
+
+
+	<!-- ***********************Doctor Management*********************** -->
+
+	<!-- ***********Patient************ -->
+	<bean id="idDoctorListService" class="com.ictti.omas.business.service.DoctorListService">
+		<property name="myDoctorDao" ref="idDoctorDao" />
+		<property name="myDoctorlistViewDao" ref="idDoctorlistViewDao" />
+		<property name="myDoctorstatuslistViewDao" ref="idDoctorstatuslistViewDao" />
+		<dwr:remote javascript="AjaxHospitalSearch">
+			<dwr:include method="findHospitalByLikeFromService" />
+		</dwr:remote>
+	</bean>
+	<dwr:configuration>
+		<dwr:convert type="bean"
+			class="com.ictti.omas.business.entity.DoctorlistView" javascript="DoctorlistView" />
+	</dwr:configuration>
+
+
+
+
+
+	<bean id="idNameAutoService"
+		class="com.ictti.omas.business.service.NameAutoComplementService">
+		<property name="myPatientDao" ref="idPatientDao" />
+
+		<dwr:remote javascript="AjaxPatientSearch">
+			<dwr:include method="findPatientByLikeFromService" />
+		</dwr:remote>
+	</bean>
+
+	<dwr:configuration>
+		<dwr:convert type="bean" class="com.ictti.omas.business.entity.Patient"
+			javascript="Patient" />
+	</dwr:configuration>
+
+
+	<!-- *************** end Doctor Management******************** -->
+
+	<!-- *************** Doctor Register******************** -->
+
+	<bean id="idDoctorService" class="com.ictti.omas.business.service.DoctorService">
+		<property name="myDoctorDao" ref="idDoctorDao" />
+		<property name="mySpecializeDao" ref="idSpecializeDao" />
+		<property name="myDoctorDegreeDao" ref="idDoctorDegreeDao" />
+		<property name="myRatingDao" ref="idRatingDao" />
+
+	</bean>
+
+	<!-- *************** Doctor Register******************** -->
+
+
+	<!-- *************** Specialize******************** -->
+
+	<bean id="idAddspService" class="com.ictti.omas.business.service.AddSpecializeService">
+		<property name="myAddspDao" ref="idAddspDao" />
+	</bean>
+
+	<!-- ***************end Specialize******************** -->
+
+	<!-- ***************Update Specialize******************** -->
+
+	<bean id="idUpdateService"
+		class="com.ictti.omas.business.service.AdminUpdateSpecializeService">
+		<property name="myAdminUpdateSpeDao" ref="idAdminUpdateSpe" />
+		<property name="myAddspDao" ref="idAddspDao" />
+	</bean>
+
+
+
+	<!-- ***************end Update Specialize******************** -->
+
+	<!-- ***************Appointment list ******************** -->
+
+
+	<bean id="idAppointmentlistService" class="com.ictti.omas.business.service.AppointmentlistService">
+		<property name="myAppointmentlistDao" ref="idAppointmentlistDao" />
+		<property name="myHospitalDao" ref="idHospitalDao" />
+		<property name="myDoctorDao" ref="idDoctorDao" />
+		<property name="myScheduleDao" ref="idScheduleDao" />
+
+	</bean>
+
+
+
+	<bean id="idsearchAppointmentlistService"
+		class="com.ictti.omas.business.service.SearchAppointmentlistService">
+		<property name="myAppointmentlistDao" ref="idsearhAppointmentlistDao" />
+		<property name="myDoctorDao" ref="idDoctorDao" />
+		<property name="myHospitalDao" ref="idHospitalDao" />
+		<property name="myScheduleDao" ref="idScheduleDao" />
+
+	</bean>
+
+
+	<!-- *************** end Appointment list ******************** -->
+
+
+
+
+	<!-- admin end -->
+
+
+
+
+
+	<!-- For Patient -->
+	<bean id="idPatientService" class="com.ictti.omas.business.service.PatientService">
+		<property name="myPatientDao" ref="idPatientDao" />
+
+	</bean>
+	<bean id="idEmailService" class="com.ictti.omas.business.service.EmailService">
+
+	</bean>
+
+	<bean id="idAutoService" class="com.ictti.omas.business.service.AutoComplementService">
+		<property name="myHospitalDao" ref="idHospitalDao" />
+		<property name="myHosSpecDao" ref="idHosSpecDao" />
+		<property name="mySpecializeDao" ref="idSpecializeDao" />
+		<property name="myDoctorDao" ref="idDoctorDao" />
+		<property name="myDoctorDegreeDao" ref="idDoctorDegreeDao" />
+		<property name="myScheduleDao" ref="idScheduleDao" />
+
+		<dwr:remote javascript="AjaxSearchSpecialize">
+			<dwr:include method="getBySpecialize" />
+		</dwr:remote>
+
+	</bean>
+	<dwr:configuration>
+		<dwr:convert type="bean" class="com.ictti.omas.business.entity.HosSpec"
+			javascript="specialize" />
+	</dwr:configuration>
+
+
+	<dwr:controller id="dwrController" debug="true" />
+	<bean id="idTreatmentService" class="com.ictti.omas.business.service.TreatmentService">
+		<property name="myTreatmentDao" ref="idTreatmentDao" />
+	</bean>
+
+
+
+
+
+	<bean id="idScheduleService" class="com.ictti.omas.business.service.ScheduleService">
+		<property name="myScheduleDao" ref="idScheduleDao" />
+		<property name="myScheduleViewDao" ref="idScheduleViewDao" />
+		<property name="myAppointmentDao" ref="idAppointmentDao" />
+		<property name="myPatientDao" ref="idPatientDao" />
+		<property name="myHospitalDao" ref="idHospitalDao" />
+		<property name="myDoctorDao" ref="idDoctorDao" />
+	<!-- 	<property name="myTokenDao" ref="idTokenDao" /> -->
+
+		<property name="myRatingDao" ref="idRatingDao" />
+
+
+
+	</bean>
+
+
+
+	<bean id="idsearchHospitalService"
+		class="com.ictti.omas.business.service.TreatmentHospitalSearchService">
+		<property name="myTreatmentDao" ref="idsearchHospitalDao" />
+	</bean>
+
+	<bean id="idsearchDoctorService"
+		class="com.ictti.omas.business.service.TreatmentbydoctorService">
+		<property name="myDoctorSearchDao" ref="idTreatmentDao" />
+	</bean>
+
+
+	<bean id="idsearchbyDoctorService"
+		class="com.ictti.omas.business.service.TreatmentDoctorSearchService">
+		<property name="myDoctorSearchDao" ref="idTreatmenbydoctortDao" />
+	</bean>
+
+
+
+	<bean id="idsearchSpecializeService"
+		class="com.ictti.omas.business.service.TreatmentbyspecializeService">
+		<property name="mySpecializeSearchDao" ref="idTreatmentDao" />
+	</bean>
+
+
+	<bean id="idsearchbySpecializeService"
+		class="com.ictti.omas.business.service.TreatmentSpecializeSearchService">
+		<property name="mySpecializeSearchDao" ref="idTreatmentbyspecializetDao" />
+	</bean>
+
+
+
+	<bean id="idajexDoctorService" class="com.ictti.omas.business.service.DoctorService">
+		<property name="mySearchTreatmentDao" ref="idDoctorDao" />
+		<dwr:remote javascript="AjaxDoctorSearch">
+			<dwr:include method="findDoctorByLikeFromService" />
+		</dwr:remote>
+		
+		
+	</bean>
+
+
+	<bean id="idajexSpecializeService" class="com.ictti.omas.business.service.SpecializeService">
+		<property name="mySearchTreatmentDao" ref="idSpecializeDao" />
+		<dwr:remote javascript="AjaxSpecializeSearch">
+			<dwr:include method="findSpecializeByLikeFromService" />
+		</dwr:remote>
+	</bean>
+
+
+
+
+	<bean id="idautoService" class="com.ictti.omas.business.service.HospitalService">
+		<property name="mySearchTreatmentDao" ref="idHospitalDao" />
+
+		<dwr:remote javascript="AjaxHospitalSearch">
+			<dwr:include method="findHospitalByLikeFromService" />
+		</dwr:remote>
+	</bean>
+
+
+
+
+
+	<dwr:configuration>
+		<dwr:convert type="bean"
+			class="com.ictti.omas.business.entity.Hospital" javascript="Hospital" />
+
+		<dwr:convert type="bean"
+			class="com.ictti.omas.business.entity.Specialize" javascript="Specialize" />
+
+<dwr:convert type="bean"
+			class="com.ictti.omas.business.entity.Rating" javascript="Rating" />
+
+		<dwr:convert type="bean" class="com.ictti.omas.business.entity.Doctor"
+			javascript="Doctor" />
+			
+			<dwr:convert type="bean" class="com.ictti.omas.business.entity.Schedule"
+			javascript="Schedule" />
+			
+			<dwr:convert type="bean" class="com.ictti.omas.business.entity.Doctordegree"
+			javascript="Doctordegree" />
+			
+			
+	</dwr:configuration>
+	<bean id="idSearchByDate" class="com.ictti.omas.business.service.SearchByDateService">
+		<property name="myScheduleDao" ref="idScheduleDao" />
+	</bean>
+
+
+
+
+</beans>
+	
+	

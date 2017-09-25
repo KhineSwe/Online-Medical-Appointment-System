@@ -1,0 +1,24 @@
+Mingalarbar!
+
+This is your new schedule.
+----------------------------------------------------------------------
+Dear $name						 $today
+---------------------------------------------------------------------
+Welcome to our OMAS system.....
+
+Specialize Type : $specializetype
+Hospital Name : $hospital	
+Maximum number of patient : $maxschno
+
+#foreach ($schedule in $schedulelist)
+
+Schedule Date : $schedule.schdate
+Schedule Starttime (Hour) : $schedule.schstarttime:00(24-hr)
+Schedule Finishtime (Hour) : $schedule.schfinishtime:00(24-hr)
+
+#end
+---------------------------------------------------------------------
+
+
+Best Regards,
+OMAS Admin...  

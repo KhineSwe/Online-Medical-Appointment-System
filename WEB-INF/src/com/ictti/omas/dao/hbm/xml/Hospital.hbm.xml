@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Hospital"
+		table="hospital"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="hosid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="hosname"
+			column="hosname"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="hosaddress"
+			column="hosaddress"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="hoscode"
+			column="hoscode"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+	
+
+		<set name="hosSpecs" inverse="true" lazy="false">
+			<key column="hosid"/>
+			<one-to-many class="HosSpec"/>
+		</set>
+
+		<set name="schedules" inverse="true" lazy="false">
+			<key column="hosid"/>
+			<one-to-many class="Schedule"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

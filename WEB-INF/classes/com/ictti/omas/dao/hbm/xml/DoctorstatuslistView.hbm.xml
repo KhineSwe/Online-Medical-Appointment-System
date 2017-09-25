@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="DoctorstatuslistView"
+		table="doctorstatuslist_view"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="did"
+		>
+			<generator class="identity"/>
+		</id>
+
+		
+		<property
+			name="dname"
+			column="dname"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="dregdate"
+			column="dregdate"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="appointmentdt"
+			column="appointmentdt"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="schdate"
+			column="schdate"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+
+	</class>	
+</hibernate-mapping>

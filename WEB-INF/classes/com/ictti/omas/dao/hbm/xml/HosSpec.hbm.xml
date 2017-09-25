@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="HosSpec"
+		table="hos_spec"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="hsid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="specializetype"
+			column="specializetype"
+			type="string"
+			not-null="true"
+			length="25"
+		/>
+		<many-to-one
+			name="spid"
+			column="spid"
+			class="Specialize"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="hosid"
+			column="hosid"
+			class="Hospital"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

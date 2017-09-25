@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean name="/loginPath" class="com.ictti.frame.presentation.action.LoginAction">
+		<property name="myStudentService" ref="idStuService" />
+	</bean>
+
+	<bean name="/logoutPath" class="com.ictti.frame.presentation.action.LogoutAction">
+	</bean>
+
+	<bean name="/registerPathFirst"
+		class="com.ictti.frame.presentation.action.RegistrationAction">
+		<property name="myStudentService" ref="idStuService" />
+	</bean>
+	<bean name="/registerPath"
+		class="com.ictti.frame.presentation.action.RegistrationAction">
+		<property name="myStudentService" ref="idStuService" />
+	</bean>
+	<bean name="/updatePathFirst" class="com.ictti.frame.presentation.action.UpdateAction">
+		<property name="myStudentService" ref="idStuService" />
+	</bean>
+	<bean name="/updatePath" class="com.ictti.frame.presentation.action.UpdateAction">
+		<property name="myStudentService" ref="idStuService" />
+	</bean>
+
+
+	<bean name="/calendarPathFirst" class="com.ictti.frame.presentation.action.CalenderAction"></bean>
+	<bean name="/calendarPath" class="com.ictti.frame.presentation.action.CalenderAction">
+	</bean>
+
+
+	<bean name="/mailPathFirst" class="com.ictti.frame.presentation.action.MailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	<bean name="/mailPath" class="com.ictti.frame.presentation.action.MailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	
+	<bean name="/manyMailPathFirst" class="com.ictti.frame.presentation.action.ManyMailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	<bean name="/manyMailPath" class="com.ictti.frame.presentation.action.ManyMailAction">
+		<property name="myEmailService" ref="idEmailService" />
+	</bean>
+	
+</beans>

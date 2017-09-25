@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<!-- Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="doctorFormBean"
+			type="com.ictti.omas.presentation.form.DoctorForm">
+		</form-bean>
+
+		<form-bean name="DoctorUpdateFormBean"
+			type="com.ictti.omas.presentation.form.DoctorForm">
+		</form-bean>
+
+
+		<form-bean name="DoctorTreatmentSearchFormBean"
+			type="com.ictti.omas.presentation.form.TreatmentSearchForm">
+
+		</form-bean>
+
+
+
+		<form-bean name="TreatmentPatientSearchFormBean"
+			type="com.ictti.omas.presentation.form.TreatmentPatientSearchForm">
+
+		</form-bean>
+
+
+		<form-bean name="MailFormBean" type="com.ictti.omas.presentation.form.MailForm">
+		</form-bean>
+
+
+
+
+		<form-bean name="AppointmentFormBean"
+			type="com.ictti.omas.presentation.form.AppointHospitalForm">
+		</form-bean>
+
+		<!-- <form-bean name="RecordTreatmentFormBean"
+			type="com.ictti.omas.presentation.form.RecordTreatmentForm">
+		</form-bean> -->
+		
+	</form-beans>
+	<!-- Action Mapping Definitions -->
+	<action-mappings>
+	
+	
+	<action path="/doctorloginPathFirst" name="doctorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" input="/WEB-INF/doctorjsp/index.jsp">
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/doctor_login.jsp" />
+
+		</action>
+
+
+
+
+		<action path="/doctorloginPath" name="doctorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/doctorjsp/doctor_login.jsp">
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/doctor_login.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp">
+			</forward>
+		</action>
+
+		<action path="/doctorlogoutPath" name="doctorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+		</action>
+
+
+		<action path="/doctorupdatePathFirst" name="DoctorUpdateFormBean" scope="session"
+			validate="false" type="org.springframework.web.struts.DelegatingActionProxy"
+			input="/WEB-INF/doctorjsp/doctor_home.jsp">
+			<forward name="gotoUpdate" path="/WEB-INF/doctorjsp/doctor_update.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+		</action>
+
+
+
+		<action path="/doctorupdatePath" name="DoctorUpdateFormBean" scope="session"
+			validate="true" cancellable="true" type="org.springframework.web.struts.DelegatingActionProxy"
+			input="/WEB-INF/doctorjsp/doctor_update.jsp">
+			<forward name="gotoUpdate" path="/WEB-INF/doctorjsp/doctor_update.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+		</action>
+
+
+
+		<action path="/treatmentlistPath" name="DoctorTreatmentSearchFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoSearch" path="/WEB-INF/doctorjsp/treatment_search.jsp" />
+			<forward name="gotoNolist" path="/WEB-INF/doctorjsp/treatment_Nolist.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/doctorjsp/treatment_search_detail.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+		</action>
+
+		<action path="/treatmentlistDetailPath" name="DoctorTreatmentSearchFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoSearch" path="/WEB-INF/doctorjsp/treatment_search.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/doctorjsp/treatment_search_detail.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+		</action>
+
+		<action path="/treatmentPatientNameSearchPath" name="TreatmentPatientSearchFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoPatientSearch" path="/WEB-INF/doctorjsp/treatment_patient_search.jsp" />
+			<forward name="gotoNoPatient" path="/WEB-INF/doctorjsp/treatment_Nopatient.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/doctorjsp/treatment_search_detail.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+		</action>
+
+
+
+		<action path="/treatmentPatientlistDetailPath" name="TreatmentPatientSearchFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoSearch" path="/WEB-INF/doctorjsp/treatment_patient_search.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/doctorjsp/patient_search_detail.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+		</action>
+		
+		
+		
+		
+		
+		 <action path="/docfaq" name="DoctorFaqFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoDoctorFaq" path="/WEB-INF/doctorjsp/doctorfaq.jsp" />
+			<forward name="gotoDoctorFaqHome" path="/WEB-INF/doctorjsp/doctorfaqHome.jsp" />
+		</action>
+
+
+
+
+		<action path="/Doctoromas" name="OmasFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoDocOmas" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+		</action>
+
+		
+
+		<action path="/docContactMailPathFist" name="MailFormBean" scope="session"
+			validate="false" type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoMailbeforelogin" path="/WEB-INF/doctorjsp/contact_mail.jsp" />
+			<forward name="gotoContactHome" path="/WEB-INF/doctorjsp/contactHome.jsp" />
+		</action>
+
+		<action path="/docContactMailPath" name="MailFormBean" scope="session"
+			validate="false" type="org.springframework.web.struts.DelegatingActionProxy"
+			input="/WEB-INF/doctorjsp/contact_mail.jsp">
+			<forward name="gotoMailbeforelogin" path="/WEB-INF/doctorjsp/contact_mail.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/contact_mail.jsp" />
+		</action>
+		
+		
+		
+		<action path="/docContactMailPathFistafterlogin" name="MailFormBean" scope="session"
+			validate="false" type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoMailafterlogin" path="/WEB-INF/doctorjsp/contact_mail.jsp" />
+			<forward name="gotoContactHome" path="/WEB-INF/doctorjsp/contactHome.jsp" />
+		</action>
+
+		<action path="/docContactMailPathafterlogin" name="MailFormBean" scope="session"
+			validate="false" type="org.springframework.web.struts.DelegatingActionProxy"
+			input="/WEB-INF/doctorjsp/contact_mail.jsp">
+			<forward name="gotoMailafterlogin" path="/WEB-INF/doctorjsp/contactHome.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/contact_mail.jsp" />
+		</action>
+		
+
+
+
+
+ 
+
+		<action path="/appointmentPathFirst" name="AppointmentFormBean"
+			scope="session" validate="false"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoAppHosp" path="/WEB-INF/doctorjsp/appoint_Hospital.jsp" />
+			<forward name="gotoNolist" path="/WEB-INF/doctorjsp/appoint_Nolist.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/doctorjsp/appoint_search_detail.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+		</action>
+
+
+	<!-- 	<action path="/hospitallistDetailPath" name="AppointmentFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoAppHosp" path="/WEB-INF/doctorjsp/appoint_Hospital.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/doctorjsp/appoint_search_detail.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+		</action> -->
+
+
+
+		<action path="/noOfappointDetailPath" name="AppointmentFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoAppHosp" path="/WEB-INF/doctorjsp/appoint_list.jsp" />
+			<forward name="gotoNoList" path="/WEB-INF/doctorjsp/appoint_Nolist.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/doctorjsp/appoint_detail.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+		</action>
+
+
+
+		<action path="/recordTreatmentPathFist" name="AppointmentFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoRecord" path="/WEB-INF/doctorjsp/record_Treatment.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/doctorjsp/appoint_detail.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+		</action>
+
+
+
+
+		<action path="/recordTreatmentPath" name="AppointmentFormBean" cancellable="true"
+			validate="true" type="org.springframework.web.struts.DelegatingActionProxy"
+			input="/WEB-INF/doctorjsp/record_Treatment.jsp">
+			<forward name="gotoRecord" path="/WEB-INF/doctorjsp/record_Treatment.jsp" />
+			<forward name="gotoAppList" path="/WEB-INF/doctorjsp/appoint_list.jsp" />
+			<forward name="gotologin" path="/WEB-INF/doctorjsp/index.jsp" />
+			<forward name="gotoDochome" path="/WEB-INF/doctorjsp/doctor_home.jsp" />
+			<forward name="gotoNoList" path="/WEB-INF/doctorjsp/appoint_Nolist.jsp" />
+		</action>
+	
+		
+		
+	</action-mappings>
+</struts-config>

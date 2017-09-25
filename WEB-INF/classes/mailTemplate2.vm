@@ -1,0 +1,19 @@
+Mingalarbar!
+
+May we bring your token number.Thank you for your kindness of using our service.
+----------------------------------------------------------------------
+Dear $name						 $today
+---------------------------------------------------------------------
+Welcome to our OMAS system.....
+
+Your Token no     :	$tokenno
+Doctor name       :	$docname	
+Specialize field  :	$spefield
+Hospital          :	$hospital
+Schedule          :	$Starttime:00 (24-hr)  TO  $Finishtime:00 (24-hr)
+Date              :	$date
+---------------------------------------------------------------------
+
+
+Best Regards,
+OMAS Admin...

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.frame.business.entity">
+	<class
+		name="IcttiStudent"
+		table="ictti_student"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="student_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="studentName"
+			column="student_name"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="studentEmail"
+			column="student_email"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="studentAccountName"
+			column="student_account_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="studentLoginName"
+			column="student_login_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="studentPassword"
+			column="student_password"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="studentPhone"
+			column="student_phone"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="studentAddress"
+			column="student_address"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="registerDate"
+			column="register_date"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<many-to-one
+			name="course"
+			column="course_id"
+			class="IcttiCourse"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="AppointView"
+		table="appoint_view"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="id"
+			type="integer"
+			column="appointmentid"
+		>
+			<generator class="identity"/>
+		</id>
+	
+	<property
+			name="tokenno"
+			column="tokenno"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+			<property
+			name="pname"
+			column="pname"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		
+		<property
+			name="pgender"
+			column="pgender"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		
+		<property
+			name="pemail"
+			column="pemail"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		
+		<property
+			name="pblood"
+			column="pblood"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		
+		
+			
+		
+	<property
+			name="appointmentdt"
+			column="appointmentdt"
+			type="date"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="status"
+			column="status"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		
+		<property
+			name="hosname"
+			column="hosname"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="schdate"
+			column="schdate"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+			<property
+			name="schstarttime"
+			column="schstarttime"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="schfinishtime"
+			column="schfinishtime"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		
+		
+		
+		<property
+			name="dname"
+			column="dname"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		
+		<property
+			name="demail"
+			column="demail"
+			type="string"
+			not-null="true"
+			length="100"
+		/>
+		
+
+	</class>	
+</hibernate-mapping>

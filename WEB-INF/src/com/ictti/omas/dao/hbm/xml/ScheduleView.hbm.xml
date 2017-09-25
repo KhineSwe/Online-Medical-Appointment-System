@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="ScheduleView"
+		table="schedule_view"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="schid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="schdate"
+			column="schdate"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="schstarttime"
+			column="schstarttime"
+			type="integer"
+			not-null="true"
+			length="8"
+		/>
+		<property
+			name="schfinishtime"
+			column="schfinishtime"
+			type="integer"
+			not-null="true"
+			length="8"
+		/>
+		<property
+			name="specializetype"
+			column="specializetype"
+			type="string"
+			not-null="true"
+			length="25"
+		/>
+		<property
+			name="hosname"
+			column="hosname"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		
+		
+		<property
+			name="dname"
+			column="dname"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		
+		
+
+	</class>	
+</hibernate-mapping>

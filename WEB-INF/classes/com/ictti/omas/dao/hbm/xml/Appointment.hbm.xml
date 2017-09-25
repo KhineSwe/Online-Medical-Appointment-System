@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Appointment"
+		table="appointment"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="appointmentid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="appointmentdt"
+			column="appointmentdt"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="status"
+			column="status"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="tokenno"
+			column="tokenno"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<many-to-one
+			name="schid"
+			column="schid"
+			class="Schedule"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="pid"
+			column="pid"
+			class="Patient"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="treatments" inverse="true" lazy="false">
+			<key column="appointmentid"/>
+			<one-to-many class="Treatment"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

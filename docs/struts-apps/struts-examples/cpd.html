@@ -1,0 +1,396 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>CPD Results</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  </head>
+  <body class="composite">
+    <div id="banner">
+                          <span id="bannerLeft">
+    
+            Struts Apps - Examples
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+      <div class="xleft">Last Published: Sat Mar 03 10:40:28 CST 2007</div>
+      <div class="xright">      <a href="http://struts.apache.org/struts-apps/struts-examples">Struts Apps - Examples</a>
+      </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn"><div id="navcolumn">      <h5>Project Documentation</h5>
+    <ul>
+              
+    <li class="none">
+          <a href="index.html">About Struts Apps - Examples</a>
+        </li>
+              
+                
+        <li class="collapsed">
+          <a href="project-info.html">Project Info</a>
+                
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        </li>
+              
+                
+        <li class="collapsed">
+          <a href="maven-reports.html">Project Reports</a>
+                
+            
+            
+      
+            
+      
+            
+      
+            
+      
+              
+          <ul>
+                  
+    <li class="none">
+          <strong><a href="cpd.html">CPD Report</a></strong>
+        </li>
+                  
+    <li class="none">
+          <a href="checkstyle.html">Checkstyle</a>
+        </li>
+                  
+    <li class="none">
+          <a href="surefire-report.html">Maven Surefire Report</a>
+        </li>
+                  
+    <li class="none">
+          <a href="pmd.html">PMD Report</a>
+        </li>
+                  
+    <li class="none">
+          <a href="xref/index.html">Source Xref</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+  <a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy">
+              <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+            </a>
+    </div></div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>CPD Results</h2><p>The following document contains the results of PMD's  <a href="http://pmd.sourceforge.net/cpd.html">CPD</a> 3.7.</p></div><div class="section"><h2>Duplications</h2><p><table class="bodyTable"><tr class="a"><th>File</th><th>Line</th></tr><tr class="b"><td>org\apache\struts\webapp\dispatch\ActionDispatcherExample.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/ActionDispatcherExample.html#42">42</a></td></tr><tr class="a"><td>org\apache\struts\webapp\dispatch\EventActionDispatcherExample.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/EventActionDispatcherExample.html#42">42</a></td></tr><tr class="b"><td colspan='2'><div class="source"><pre>                                 = new EventActionDispatcher(this);
+
+    private int fooCount;
+    private int barCount;
+
+    /**
+     * Execute method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward execute(ActionMapping mapping,
+                                 ActionForm form,
+                                 HttpServletRequest request,
+                                 HttpServletResponse response)
+        throws Exception {
+
+        return dispatcher.execute(mapping, form, request, response);
+
+    }
+
+    /**
+     * Example &quot;foo&quot; method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward doFoo(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+
+        fooCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;foo&quot;, new ActionMessage(&quot;count.foo.message&quot;, fooCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }
+
+    /**
+     * Example &quot;bar&quot; method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward doBar(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+        barCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;bar&quot;, new ActionMessage(&quot;count.bar.message&quot;, barCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }
+
+}</pre></div></td></tr><table class="bodyTable"></p><p><table class="bodyTable"><tr class="a"><th>File</th><th>Line</th></tr><tr class="b"><td>org\apache\struts\webapp\dispatch\DispatchExampleAction.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/DispatchExampleAction.html#37">37</a></td></tr><tr class="a"><td>org\apache\struts\webapp\dispatch\EventDispatchActionExample.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/EventDispatchActionExample.html#37">37</a></td></tr><tr class="b"><td colspan='2'><div class="source"><pre>public class MappingDispatchExampleAction extends MappingDispatchAction {
+
+    private int fooCount;
+    private int barCount;
+
+    /**
+     * Example &quot;foo&quot; method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward doFoo(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+
+        fooCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;foo&quot;, new ActionMessage(&quot;count.foo.message&quot;, fooCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }
+
+    /**
+     * Example &quot;bar&quot; method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward doBar(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+        barCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;bar&quot;, new ActionMessage(&quot;count.bar.message&quot;, barCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }
+
+}</pre></div></td></tr><table class="bodyTable"></p><p><table class="bodyTable"><tr class="a"><th>File</th><th>Line</th></tr><tr class="b"><td>org\apache\struts\webapp\dispatch\ActionDispatcherExample.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/ActionDispatcherExample.html#63">63</a></td></tr><tr class="a"><td>org\apache\struts\webapp\dispatch\LookupDispatchExampleAction.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/LookupDispatchExampleAction.html#50">50</a></td></tr><tr class="b"><td colspan='2'><div class="source"><pre>        keyMethodMap.put(&quot;button.bar.label&quot;, &quot;doBar&quot;);
+    }
+
+    /**
+     * Example &quot;foo&quot; method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward doFoo(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+
+        fooCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;foo&quot;, new ActionMessage(&quot;count.foo.message&quot;, fooCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }
+
+    /**
+     * Example &quot;bar&quot; method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward doBar(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+        barCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;bar&quot;, new ActionMessage(&quot;count.bar.message&quot;, barCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }</pre></div></td></tr><table class="bodyTable"></p><p><table class="bodyTable"><tr class="a"><th>File</th><th>Line</th></tr><tr class="b"><td>org\apache\struts\webapp\dispatch\ActionDispatcherExample.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/ActionDispatcherExample.html#77">77</a></td></tr><tr class="a"><td>org\apache\struts\webapp\dispatch\EventDispatchActionExample.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/EventDispatchActionExample.html#52">52</a></td></tr><tr class="b"><td colspan='2'><div class="source"><pre>    public ActionForward doFoo(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+
+        fooCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;foo&quot;, new ActionMessage(&quot;count.foo.message&quot;, fooCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }
+
+    /**
+     * Example &quot;bar&quot; method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward doBar(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+        barCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;bar&quot;, new ActionMessage(&quot;count.bar.message&quot;, barCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }
+
+}</pre></div></td></tr><table class="bodyTable"></p><p><table class="bodyTable"><tr class="a"><th>File</th><th>Line</th></tr><tr class="b"><td>org\apache\struts\webapp\dispatch\DispatchExampleAction.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/DispatchExampleAction.html#52">52</a></td></tr><tr class="a"><td>org\apache\struts\webapp\dispatch\LookupDispatchExampleAction.java</td><td><a href="./xref/org/apache/struts/webapp/dispatch/LookupDispatchExampleAction.html#63">63</a></td></tr><tr class="b"><td colspan='2'><div class="source"><pre>    public ActionForward doFoo(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+
+        fooCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;foo&quot;, new ActionMessage(&quot;count.foo.message&quot;, fooCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }
+
+    /**
+     * Example &quot;bar&quot; method.
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request
+     * @param request The servlet request we are processing
+     * @param response The servlet response we are creating
+     *
+     * @exception Exception if business logic throws an exception
+     */
+    public ActionForward doBar(ActionMapping mapping,
+                               ActionForm form,
+                               HttpServletRequest request,
+                               HttpServletResponse response)
+        throws Exception {
+        barCount++;
+
+        ActionMessages messages = new ActionMessages();
+        messages.add(&quot;bar&quot;, new ActionMessage(&quot;count.bar.message&quot;, barCount+&quot;&quot;));
+        saveMessages(request, messages);
+
+        return (mapping.findForward(&quot;success&quot;));
+
+    }</pre></div></td></tr><table class="bodyTable"></p></div>
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2000-2007
+    
+          Apache Software Foundation
+      </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

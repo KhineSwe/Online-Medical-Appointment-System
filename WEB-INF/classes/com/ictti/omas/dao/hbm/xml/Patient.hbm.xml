@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Patient"
+		table="patient"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="pid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="pname"
+			column="pname"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="ppwd"
+			column="ppwd"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="pemail"
+			column="pemail"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="paddress"
+			column="paddress"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="pphno"
+			column="pphno"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="pgender"
+			column="pgender"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="pdob"
+			column="pdob"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="pblood"
+			column="pblood"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="pregdate"
+			column="pregdate"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="pstatus"
+			column="pstatus"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+	
+
+		<set name="ratings" inverse="true" lazy="false">
+			<key column="pid"/>
+			<one-to-many class="Rating"/>
+		</set>
+
+		<set name="appointments" inverse="true" lazy="false">
+			<key column="pid"/>
+			<one-to-many class="Appointment"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

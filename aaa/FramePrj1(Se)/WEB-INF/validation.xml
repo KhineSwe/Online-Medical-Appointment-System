@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+<form-validation>
+	<formset>
+
+		<!-- An example form -->
+		<form name="studentFormBean">
+			<field property="frmLoginName" depends="required">
+				<arg key="Login Name" resource="false" />
+			</field>
+			<field property="frmPassword" depends="required,maxlength,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+		</form>
+
+
+
+
+
+
+
+		<form name="RegFormBean">
+			<field property="frmRegName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmRegEmail" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+			<field property="frmRegAccountName" depends="required">
+				<arg key="Login Name" resource="false" />
+			</field>
+			<field property="frmRegPassword" depends="required,maxlength,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			<field property="frmRegConfPassword" depends="required,maxlength,minlength">
+				<arg key="Confirm Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+		</form>
+
+		<form name="CalendarFormBean">
+			<field property="firstDate" depends="required,mask">
+				<arg position="0" key="label.CalendarForm.firstDate" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{4}-\d{2}-\d{2}$</var-value>
+				</var>
+			</field>
+			<field property="secondDate" depends="required,mask">
+				<arg position="0" key="label.CalendarForm.secondDate" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{4}-\d{2}-\d{2}$</var-value>
+				</var>
+			</field>
+		</form>
+
+
+
+
+
+		<form name="UpdateFormBean">
+			<field property="frmRegName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmRegEmail" depends="required">
+				<arg key="Email" resource="false" />
+			</field>
+
+			<field property="frmRegPassword" depends="required,maxlength,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			<field property="frmRegConfPassword" depends="required,maxlength,minlength">
+				<arg key="Confirm Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+		</form>
+
+		<form name="MailFormBean">
+			<field property="frmMailName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmMailAdd" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+		</form>
+		
+		<form name="ManyMailFormBean">
+			<field property="frmMailName1" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmMailAdd1" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+			<field property="frmMailName2" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmMailAdd2" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+		</form>
+
+
+
+	</formset>
+</form-validation>

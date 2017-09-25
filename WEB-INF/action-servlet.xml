@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+<bean id="idRatingDao" class="com.ictti.omas.dao.RatingDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="idDocTreatmentDao" class="com.ictti.omas.dao.TreatmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="idAppointViewDao" class="com.ictti.omas.dao.AppointViewDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	
+	<!-- for admin -->
+	<!-- ***********adminlogin******* -->
+	<bean id="idAdminDao" class="com.ictti.omas.dao.AdminDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- ***********adminlogin******* -->
+	<!-- ***********doctor******* -->
+
+
+	<bean id="idDoctorlistViewDao" class="com.ictti.omas.dao.DoctorlistViewDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="idDoctorstatuslistViewDao" class="com.ictti.omas.dao.DoctorstatuslistViewDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- ***********doctor******* -->
+
+
+	<!-- ***********Specialize******* -->
+
+	<bean id="idAddspDao" class="com.ictti.omas.dao.AddSpecializeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- *********** end Specialize******* -->
+
+
+	<!-- ***********Update Specialize******* -->
+
+	<bean id="idAdminUpdateSpe" class="com.ictti.omas.dao.SpecializeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- *********** end Update Specialize******* -->
+	
+	<!-- ***********Appointment list ******* -->
+	
+	
+	
+	<bean id="idAppointmentlistDao" class="com.ictti.omas.dao.AppointmentlistDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="idsearhAppointmentlistDao" class="com.ictti.omas.dao.AppointmentlistDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	
+	<!-- *********** end Appointment list ******* -->
+	
+	<!-- for admin -->
+
+	<!-- for patient -->
+	<bean id="idPatientDao" class="com.ictti.omas.dao.PatientDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- <bean id="idHospitalDao" class="com.ictti.omas.dao.HospitalDaoImpl"> 
+		<property name="sessionFactory" ref="sessionFactory" /> </bean> -->
+	<!-- <bean id="idSpecializeDao" class="com.ictti.omas.dao.SpecializeDaoImpl"> 
+		<property name="sessionFactory" ref="sessionFactory" /> </bean> -->
+	<bean id="idHospitalDao" class="com.ictti.omas.dao.HospitalDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="idHosSpecDao" class="com.ictti.omas.dao.HosSpecDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="idTreatmentDao" class="com.ictti.omas.dao.TreatmentListDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="idsearchHospitalDao" class="com.ictti.omas.dao.TreatmentListDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+	<bean id="idDoctorDao" class="com.ictti.omas.dao.DoctorDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="idTreatmenbydoctortDao" class="com.ictti.omas.dao.TreatmentListDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+	<bean id="idSpecializeDao" class="com.ictti.omas.dao.SpecializeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="idTreatmentbyspecializetDao" class="com.ictti.omas.dao.TreatmentListDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="idDoctorDegreeDao" class="com.ictti.omas.dao.DoctorDegreeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="idScheduleDao" class="com.ictti.omas.dao.ScheduleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="idScheduleViewDao" class="com.ictti.omas.dao.ScheduleViewDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+<!-- 
+	<bean id="idTokenDao" class="com.ictti.omas.dao.TokenDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+ -->
+
+
+
+	<bean id="idAppointmentDao" class="com.ictti.omas.dao.AppointmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+
+
+
+	<!-- DataSource definition -->
+	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	<bean id="dbConf" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg>
+			<value>database.properties</value>
+		</constructor-arg>
+	</bean>
+	<bean id="databaseConfPostProcessor"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<ref bean="dbConf" />
+		</property>
+	</bean>
+	<!-- //Transaction Manager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- sessionFactory definition -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="mappingResources">
+			<list>
+
+				<value> com/ictti/omas/dao/hbm/xml/Patient.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Doctor.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Hospital.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Specialize.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Doctordegree.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Appointment.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Schedule.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Treatment.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/TreatmentlistView.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/TreatmentView.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/ScheduleView.hbm.xml </value>
+				
+				<value> com/ictti/omas/dao/hbm/xml/HosSpec.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Admin.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/DoctorlistView.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/DoctorstatuslistView.hbm.xml
+				</value>
+				<value>
+					com/ictti/omas/dao/hbm/xml/PatientappointmentlistView.hbm.xml
+				</value>
+				<value> com/ictti/omas/dao/hbm/xml/AppointmentlistView.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/Rating.hbm.xml </value>
+				<value> com/ictti/omas/dao/hbm/xml/AppointView.hbm.xml </value>
+
+
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLInnoDBDialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

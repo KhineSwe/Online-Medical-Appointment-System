@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Doctordegree"
+		table="doctordegree"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="degreeid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="degreename"
+			column="degreename"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="certificateimg"
+			column="certificateimg"
+			type="binary"
+			not-null="false"
+		/>
+		<many-to-one
+			name="did"
+			column="did"
+			class="Doctor"
+			not-null="true"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,266 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>CPD Results</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  </head>
+  <body class="composite">
+    <div id="banner">
+                          <span id="bannerLeft">
+    
+            Struts Apps - Cookbook
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+      <div class="xleft">Last Published: Sat Mar 03 10:39:35 CST 2007</div>
+      <div class="xright">      <a href="http://struts.apache.org/struts-apps/struts-cookbook">Struts Apps - Cookbook</a>
+      </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn"><div id="navcolumn">      <h5>Project Documentation</h5>
+    <ul>
+              
+    <li class="none">
+          <a href="index.html">About Struts Apps - Cookbook</a>
+        </li>
+              
+                
+        <li class="collapsed">
+          <a href="project-info.html">Project Info</a>
+                
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        </li>
+              
+                
+        <li class="collapsed">
+          <a href="maven-reports.html">Project Reports</a>
+                
+            
+            
+      
+            
+      
+            
+      
+            
+      
+              
+          <ul>
+                  
+    <li class="none">
+          <strong><a href="cpd.html">CPD Report</a></strong>
+        </li>
+                  
+    <li class="none">
+          <a href="checkstyle.html">Checkstyle</a>
+        </li>
+                  
+    <li class="none">
+          <a href="surefire-report.html">Maven Surefire Report</a>
+        </li>
+                  
+    <li class="none">
+          <a href="pmd.html">PMD Report</a>
+        </li>
+                  
+    <li class="none">
+          <a href="xref/index.html">Source Xref</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+  <a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy">
+              <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+            </a>
+    </div></div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>CPD Results</h2><p>The following document contains the results of PMD's  <a href="http://pmd.sourceforge.net/cpd.html">CPD</a> 3.7.</p></div><div class="section"><h2>Duplications</h2><p><table class="bodyTable"><tr class="a"><th>File</th><th>Line</th></tr><tr class="b"><td>examples\bean\ExampleBean.java</td><td><a href="./xref/examples/bean/ExampleBean.html#80">80</a></td></tr><tr class="a"><td>examples\TestBean.java</td><td><a href="./xref/examples/TestBean.html#65">65</a></td></tr><tr class="b"><td colspan='2'><div class="source"><pre>    public TestBean() {
+        super();
+    }
+
+    // -------------------------------------------------------------- Properties
+
+    /**
+     * Returns the booleanValue.
+     * @return boolean
+     */
+    public boolean isBooleanValue() {
+        return booleanValue;
+    }
+
+    /**
+     * Returns the doubleValue.
+     * @return double
+     */
+    public double getDoubleValue() {
+        return doubleValue;
+    }
+
+    /**
+     * Returns the floatValue.
+     * @return float
+     */
+    public float getFloatValue() {
+        return floatValue;
+    }
+
+    /**
+     * Returns the intValue.
+     * @return int
+     */
+    public int getIntValue() {
+        return intValue;
+    }
+
+    /**
+     * Returns the longValue.
+     * @return long
+     */
+    public long getLongValue() {
+        return longValue;
+    }
+
+    /**
+     * Returns the shortValue.
+     * @return short
+     */
+    public short getShortValue() {
+        return shortValue;
+    }
+
+    /**
+     * Returns the stringValue.
+     * @return String
+     */
+    public String getStringValue() {
+        return stringValue;
+    }
+
+    /**
+     * Sets the booleanValue.
+     * @param booleanValue The booleanValue to set
+     */
+    public void setBooleanValue(boolean booleanValue) {
+        this.booleanValue = booleanValue;
+    }
+
+    /**
+     * Sets the doubleValue.
+     * @param doubleValue The doubleValue to set
+     */
+    public void setDoubleValue(double doubleValue) {
+        this.doubleValue = doubleValue;
+    }
+
+    /**
+     * Sets the floatValue.
+     * @param floatValue The floatValue to set
+     */
+    public void setFloatValue(float floatValue) {
+        this.floatValue = floatValue;
+    }
+
+    /**
+     * Sets the intValue.
+     * @param intValue The intValue to set
+     */
+    public void setIntValue(int intValue) {
+        this.intValue = intValue;
+    }
+
+    /**
+     * Sets the longValue.
+     * @param longValue The longValue to set
+     */
+    public void setLongValue(long longValue) {
+        this.longValue = longValue;
+    }
+
+    /**
+     * Sets the shortValue.
+     * @param shortValue The shortValue to set
+     */
+    public void setShortValue(short shortValue) {
+        this.shortValue = shortValue;
+    }
+
+    /**
+     * Sets the stringValue.
+     * @param stringValue The stringValue to set
+     */
+    public void setStringValue(String stringValue) {
+        this.stringValue = stringValue;
+    }
+
+    /**
+     * Returns the dateValue.
+     * @return java.util.Date
+     */
+    public java.util.Date getDateValue() {</pre></div></td></tr><table class="bodyTable"></p><p><table class="bodyTable"><tr class="a"><th>File</th><th>Line</th></tr><tr class="b"><td>examples\logic\PrepareLogicAction.java</td><td><a href="./xref/examples/logic/PrepareLogicAction.html#87">87</a></td></tr><tr class="a"><td>examples\options\PrepareOptionsAction.java</td><td><a href="./xref/examples/options/PrepareOptionsAction.html#124">124</a></td></tr><tr class="b"><td colspan='2'><div class="source"><pre>        request.setAttribute(&quot;days&quot;, days);
+
+        /* Collection of custom beans */
+        ArrayList books = new ArrayList();
+        books.add(new BookBean(&quot;0596003285&quot;, &quot;Programming Jakarta Struts&quot;));
+        books.add(new BookBean(&quot;1930110502&quot;, &quot;Struts in Action&quot;));
+        books.add(
+            new BookBean(&quot;1861007817&quot;, &quot;Professional Struts Applications&quot;));
+        books.add(new BookBean(&quot;0672324725&quot;, &quot;Struts Kick Start&quot;));
+        books.add(new BookBean(&quot;0471213020&quot;, &quot;Mastering Jakarta Struts&quot;));
+        books.add(new BookBean(&quot;1558608621&quot;, &quot;The Struts Framework&quot;));
+        books.add(new BookBean(&quot;0971661901&quot;, &quot;Struts Fast Track&quot;));
+        request.setAttribute(&quot;books&quot;, books);</pre></div></td></tr><table class="bodyTable"></p></div>
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2000-2007
+    
+          Apache Software Foundation
+      </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+Framework Mail Testing For Many Users
+----------------------------------------------------------------------
+Dear Users                                        $today
+---------------------------------------------------------------------
+Course Name                                       Course Code
+#foreach($course in $cList)
+---------------------------------------------------------------------
+$course.courseName                                $course.courseCode
+#end
+
+
+Best Regards,
+ICTTI Framework

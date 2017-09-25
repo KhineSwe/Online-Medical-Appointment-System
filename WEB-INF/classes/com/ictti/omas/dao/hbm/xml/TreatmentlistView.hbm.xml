@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="TreatmentlistView"
+		table="treatmentlist_view"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="treatmentid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="treatment"
+			column="treatment"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="treatmentdt"
+			column="treatmentdt"
+			type="date"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="disease"
+			column="disease"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="dnote"
+			column="dnote"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="pname"
+			column="pname"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="hosname"
+			column="hosname"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="dname"
+			column="dname"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="pemail"
+			column="pemail"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="specializetype"
+			column="specializetype"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

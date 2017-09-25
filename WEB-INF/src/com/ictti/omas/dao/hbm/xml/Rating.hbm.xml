@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Rating"
+		table="rating"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="rateid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="rateValue"
+			column="rate_value"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="description"
+			column="description"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<many-to-one
+			name="did"
+			column="did"
+			class="Doctor"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="pid"
+			column="pid"
+			class="Patient"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

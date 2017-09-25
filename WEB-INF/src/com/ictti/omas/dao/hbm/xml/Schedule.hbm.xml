@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.omas.business.entity">
+	<class
+		name="Schedule"
+		table="schedule"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="schid"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="schdate"
+			column="schdate"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="schmaxno"
+			column="schmaxno"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="apppatientno"
+			column="apppatientno"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="schstarttime"
+			column="schstarttime"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="schfinishtime"
+			column="schfinishtime"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<many-to-one
+			name="did"
+			column="did"
+			class="Doctor"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="hosid"
+			column="hosid"
+			class="Hospital"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="appointments" inverse="true" lazy="false">
+			<key column="schid"/>
+			<one-to-many class="Appointment"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>
